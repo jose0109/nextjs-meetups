@@ -46,8 +46,9 @@ export const getStaticPaths = async () => {
   // All dynamic segment values for which we want to pre generate
   return {
     // Array would be generated dynamically
-    fallback: false,
+    fallback: "blocking",
     // Fallback true (next tries to generate on the fly another page)
+    // blocking tell next to wait untill the page is pre generated and then stores it in cache
     // False tells next to throw 404 meaning we are specyfing all of
     // our paths in this object
     paths: meetups.map((meetup) => ({
